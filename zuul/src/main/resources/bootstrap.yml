@@ -1,0 +1,6 @@
+spring:
+  cloud:
+    config:
+      name: zuul
+      uri: http://localhost:8888
+      profile: development

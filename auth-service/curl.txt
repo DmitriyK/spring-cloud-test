@@ -1,0 +1,1 @@
+curl -XPOST "web_app:@localhost:5000/oauth/token" -d "grant_type=password&username=reader&password=reader"
