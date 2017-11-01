@@ -1,7 +1,26 @@
 server:
-  #context-path: /uaa
+  context-path: /uaa
   port: 5000
 spring:
   application:
     name: auth-service
-#security.oauth2.
+logging:
+  level:
+    org.springframework.web.client: TRACE
+    org.springframework.http.client: TRACE
+    org.springframework.security: DEBUG
+#security:
+  #oauth2:
+    #authorization:
+      #check-token-access: permitAll()
+    #client:
+      #client-id: client
+      #client-secret: secret
+      #scope: read_users
+      #authorized-grant-types: password
+  #user:
+    #name: jose
+    #password: mypass
+    #role: read_users
+    #client:
+      #authentication-scheme: header

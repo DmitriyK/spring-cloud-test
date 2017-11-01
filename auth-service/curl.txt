@@ -1,1 +1,16 @@
-curl -XPOST "web_app:@localhost:5000/oauth/token" -d "grant_type=password&username=reader&password=reader"
+curl -XPOST client:secret@localhost:5000/uaa/oauth/token -d grant_type=password -d username=jose -d password=mypass
+curl -XPOST localhost:5000/uaa/oauth/check_token -d token=86a10759-6b91-4502-ae92-275ffa817890
+
+curl -H "Authorization: Bearer 67ede2fc-09b5-4ffa-aac5-717cdc59e82b" localhost:5000/uaa/user
+curl -H "Authorization: Bearer 50ec9fc2-c81b-4b21-bd66-db789e972aae" http://localhost:5000/uaa/user
+
+curl -X GET -H "Content-type: application/x-www-form-urlencoded; charset=utf-8" -H "Authorization: Bearer 50ec9fc2-c81b-4b21-bd66-db789e972aae" http://localhost:5000/uaa/user
+
+
+curl -XPOST web:@localhost:5000/oauth/token -d grant_type=refresh_token -d refresh_token=0b511a56-7212-46ce-a271-bf6646d0136d
+
+curl -XPOST localhost:8081/user -d access_token=5786c9df-c7cc-4083-a1e0-e97e65b2f5e9
+curl -XPOST localhost:8081/user -H "Authorization: Bearer d45ac894-b913-4ea4-b23f-a02f81536929"
+curl -H "Authorization: Bearer 2d62a0f0-a8ef-411e-9e5a-58d8271cadf3" -v localhost:8081/test
+
+curl -i -H "Content-type: application/x-www-form-urlencoded; charset=utf-8" -H "Authorization: Bearer 67ede2fc-09b5-4ffa-aac5-717cdc59e82b" -X GET http://localhost:5000/uaa/user

@@ -11,7 +11,7 @@ buildscript {
 }
 
 apply plugin: 'java'
-apply plugin: 'eclipse'
+apply plugin: 'idea'
 apply plugin: 'org.springframework.boot'
 
 version = '0.0.1-SNAPSHOT'
@@ -30,7 +30,7 @@ dependencies {
 	//compile('org.springframework.cloud:spring-cloud-starter-eureka')
 	compile('org.springframework.cloud:spring-cloud-starter-oauth2')
 	//compile('org.springframework.cloud:spring-cloud-starter-security')
-	testCompile('org.springframework.boot:spring-boot-starter-test')
+	//testCompile('org.springframework.boot:spring-boot-starter-test')
 }
 
 dependencyManagement {

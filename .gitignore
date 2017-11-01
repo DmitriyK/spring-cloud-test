@@ -84,4 +84,5 @@ hs_err_pid*
 .idea/
 
 */node_modules/**
-
+*.DS_Store
+*/out/**
