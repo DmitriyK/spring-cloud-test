@@ -1,0 +1,28 @@
+security:
+  oauth2:
+    resource:
+      #id: testres
+      token-info-uri: http://localhost:5001/uaa/oauth/check_token
+      user-info-uri: http://localhost:5001/uaa/user
+      #prefer-token-info: false
+      #token-type: bearer
+    client:
+      client-id: client
+      client-secret: secret
+      #access-token-uri: http://localhost:5001/uaa/user
+      #resource-ids: tttt
+
+logging:
+  level:
+    org.springframework.web.client: TRACE
+    org.springframework.http.client: TRACE
+    org.springframework.security: DEBUG
+server:
+  context-path: /resource
+  port: 8081
+#security:
+  #basic:
+    #enabled: false
+#management:
+  #security:
+    #enabled: false

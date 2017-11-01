@@ -1,0 +1,21 @@
+curl -XPOST client:secret@localhost:5001/uaa/oauth/token -d grant_type=password -d username=jose -d password=mypass
+curl -XPOST localhost:5001/uaa/oauth/check_token -d token=e4665774-a061-4dd4-a508-ff909659af5d
+curl -XPOST client:secret@localhost:5001/uaa/oauth/check_token -d token=ca36620e-b477-4a0f-9e24-a978e1845c9e
+
+curl -H "Authorization: Bearer 4ef7e2c7-58f2-4158-bfcd-583c0b68e369" localhost:5001/uaa/user
+curl -H "Authorization: Bearer d6a091bb-9d03-4bd5-a0ac-a81ad597fc5c" http://localhost:5001/uaa/user
+
+curl -X GET -H "Content-type: application/x-www-form-urlencoded; charset=utf-8" -H "Authorization: Bearer 50ec9fc2-c81b-4b21-bd66-db789e972aae" http://localhost:5000/uaa/user
+
+curl -XPOST client:secret@localhost:5001/uaa/oauth/token -d grant_type=refresh_token -d refresh_token=18408ded-ddfb-4d7d-868c-18180e42d49d
+
+curl -XPOST localhost:8081/user -d access_token=5786c9df-c7cc-4083-a1e0-e97e65b2f5e9
+curl -XPOST localhost:8081/user -H "Authorization: Bearer d45ac894-b913-4ea4-b23f-a02f81536929"
+curl -H "Authorization: Bearer dd008c3f-82a3-48f9-a7da-105fd86e8133" -v localhost:8081/resource/test
+
+curl -H "Authorization: Bearer dd008c3f-82a3-48f9-a7da-105fd86e8133" -v localhost:8081/resource/test
+
+curl -i -H "Content-type: application/x-www-form-urlencoded; charset=utf-8" -H "Authorization: Bearer 8f8c30f6-5d7f-4a84-a89e-b6790c086f1d" -X GET http://localhost:8081/resource/user
+
+curl -i -H "Content-type: application/x-www-form-urlencoded; charset=utf-8" -H "Authorization: Bearer ca36620e-b477-4a0f-9e24-a978e1845c9e" -X GET http://localhost:5001/uaa/user
+curl -i -H "Content-type: application/x-www-form-urlencoded; charset=utf-8" -H "Authorization: Bearer ca36620e-b477-4a0f-9e24-a978e1845c9e" -X GET client:secret@localhost:5001/uaa/user
